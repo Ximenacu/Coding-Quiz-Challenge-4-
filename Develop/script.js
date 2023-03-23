@@ -52,35 +52,25 @@ function writePassword() {
       break
     }
   }
-  console.log("Password",password);
 
   password=password.sort(function () {
     return Math.random() - 0.5;
   });
   console.log("Password",password);
 
+// Here is where i have problems:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // var password = generatePassword();
-  //  var passwordText = document.querySelector("#password");
-
+    // var password = generatePassword();
+    // var passwordText = document.querySelector("#password");
   //  passwordText.value = password;
 
+ 
+  password=password.join(",")
+  var passwordfinal=password.split(",").join('')
+
+  document.getElementById('password').innerHTML=passwordfinal;
+  
+ 
 
 }
 
