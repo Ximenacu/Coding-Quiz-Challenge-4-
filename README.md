@@ -25,16 +25,17 @@ THEN my input should be validated and at least one character type should be sele
 THEN a password is generated that matches the selected criteria ✅
 
 *WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page.
+THEN the password is either displayed in an alert or written to the page. ✅
 
 Additionally:
-*The Challenge should not produce any errors in the console when you inspect it using Chrome DevTools.
+*The Challenge should not produce any errors in the console when you inspect it using Chrome DevTools. ✅
 *Application deployed at live URL.
 *Application GitHub URL submitted.
 *Quality 
     Application user experience is intuitive and easy to navigate.
     Application user interface style is clean and polished.
-    Application resembles the mock-up functionality provided in the Challenge instructions.
+    Application resembles the mock-up functionality provided in the Challenge instructions.✅
 
-*README file 
+URL of deployed app:
+
 
