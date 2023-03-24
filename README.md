@@ -4,7 +4,15 @@ Application that can be used to generate a random password based on criteria the
 This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript.
 Has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
 
-The following are the acceptance criteria: 
+## URL of deployed app:
+https://ximenacu.github.io/Password_Generator/
+
+## URL of Git Hub 
+https://github.com/Ximenacu/Password_Generator
+
+![image](screenshot_deployedApp_passwordGenerator.jpg)
+
+## Acceptance Ariteria: 
 *GIVEN I need a new, secure password
 WHEN I click the button to generate a password
 THEN I am presented with a series of prompts for password criteria.✅
@@ -29,13 +37,10 @@ THEN the password is either displayed in an alert or written to the page. ✅
 
 Additionally:
 *The Challenge should not produce any errors in the console when you inspect it using Chrome DevTools. ✅
-*Application deployed at live URL.
-*Application GitHub URL submitted.
-*Quality 
+*Application deployed at live URL. ✅
+*Application GitHub URL submitted. ✅
+*Quality  ✅
     Application user experience is intuitive and easy to navigate.
     Application user interface style is clean and polished.
-    Application resembles the mock-up functionality provided in the Challenge instructions.✅
-
-URL of deployed app:
-
+    Application resembles the mock-up functionality provided in the Challenge instructions.
 
