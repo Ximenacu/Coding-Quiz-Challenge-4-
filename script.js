@@ -21,6 +21,9 @@ function writePassword() {
 
   var criteria=[4];
   criteria[0] = window.confirm("Would you like to include special characters in your password?");
+  if (criteria[0]==true){
+    window.alert("Please keep in mind that a special character may be a space ' ' and can be included in your password.");
+  }
   criteria[1] = window.confirm("Would you like to include numeric characters in your password?");
   criteria[2] = window.confirm("Would you like to include lowercase characters in your password?");
   criteria[3] = window.confirm("Would you like to include uppercase characters in your password?");
