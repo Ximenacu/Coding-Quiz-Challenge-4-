@@ -1,6 +1,6 @@
 # Password Generator Starter Code
 
-Application that can be used to generate a random password based on criteria the user selects. 
+Timed coding quiz with multiple-choice questions. 
 This app runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript.
 Has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
 
@@ -12,35 +12,42 @@ https://github.com/Ximenacu/Password_Generator
 
 ![image](screenshot_deployedApp_passwordGenerator.jpg)
 
+## Acceptance Ariteria:
+AS A coding boot camp student
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+SO THAT I can gauge my progress compared to my peers
+
 ## Acceptance Ariteria: 
-*GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria.✅
+GIVEN I am taking a code quiz:
 
-*WHEN prompted for password criteria
-THEN I select which criteria to include in the password ✅
+WHEN I click the start button
+THEN a timer starts and I am presented with a question
 
-*WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters ✅
+WHEN I answer a question
+THEN I am presented with another question
 
-*WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters ✅
+WHEN I answer a question incorrectly
+THEN time is subtracted from the clock
 
-*WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected ✅
+WHEN all questions are answered or the timer reaches 0
+THEN the game is over
 
-*WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria ✅
-
-*WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page. ✅
+WHEN the game is over
+THEN I can save my initials and score
 
 Additionally:
 *The Challenge should not produce any errors in the console when you inspect it using Chrome DevTools. ✅
-*Application deployed at live URL. ✅
-*Application GitHub URL submitted. ✅
-*Quality  ✅
+*Application deployed at live URL. 
+*Application loads with no errors.
+*Application GitHub URL submitted. 
+*Quality  
     Application user experience is intuitive and easy to navigate.
     Application user interface style is clean and polished.
     Application resembles the mock-up functionality provided in the Challenge instructions.
+*Repository 
+    Repository has a unique name.
+    Repository follows best practices for file structure and naming conventions.
+    Repository follows best practices for class/id naming conventions, indentation, high-quality comments, etc.
+    Repository contains multiple descriptive commit messages.
+    Repository contains a high-quality README file with description, screenshot, and link to deployed application.
 

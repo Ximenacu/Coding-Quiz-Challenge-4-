@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href=".style.css"> -->
+  <link rel="reset" href=".reset.css">
+  <title>Document</title>
+</head>
 
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder=  "Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
-      </div>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
-
+<body>
+  <header>
+    <h3>View High Scores</h3>
+    <p id="time">Get Ready!</p>
+  </header>
+  
+  <main>
+   <h1 class="title">Coding Quiz Challenge</h1>
+   <p id="p">Try to answer the following code related questions within the time limit. 
+    Keep in mind that incorrect answers will penalize your score 
+    and deduct 10 seconds from the timer. </p>
+   <section>
+    <button class="startQuiz">Start Quiz</button> 
+      <button  class="button" id="b1" style="display:none;"></button>
+      <button  class="button" id="b2" style="display:none;"></button>
+      <button  class="button" id="b3" style="display:none;"></button>
+      <button  class="button" id="b4" style="display:none;"></button>
+   </section>
+   <section id="wrong"></section>
+  </main>
+  
+  <script src="./script.js"></script>
+</body>
 </html>
