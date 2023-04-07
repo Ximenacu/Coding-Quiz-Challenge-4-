@@ -14,6 +14,7 @@ var submit = document.querySelector("#submit");
 var high = document.querySelector("#high");
 var message =document.querySelector("#message");
 var startagain = document.querySelector(".startagain");
+var resetscore = document.querySelector(".resetscore");
 var namescore=[];
 var i=0;
 var n=0;
@@ -30,8 +31,10 @@ var score=0;
 var secondsLeft=25;// Initial time available
 
 startQuiz.addEventListener("click", function() {
+  var secondsLeft=25;// Initial time available
   var timerID = setInterval(function() {
     secondsLeft--;
+    console.log("seconds left"+ secondsLeft);
     time.textContent = "Time: " + secondsLeft;
 
     if (secondsLeft < 0 || i==6) {
@@ -80,10 +83,10 @@ b4.addEventListener("click", function() {
 function nextq(){
       title.textContent =questions[i];
       if (i<6){
-        b1.textContent = ans1[i*4];
-        b2.textContent = ans1[(i*4)+1];
-        b3.textContent = ans1[(i*4)+2];
-        b4.textContent = ans1[(i*4)+3];
+        b1.textContent = "A) " + ans1[i*4];
+        b2.textContent = "B) " + ans1[(i*4)+1];
+        b3.textContent = "C) " + ans1[(i*4)+2];
+        b4.textContent = "D) " + ans1[(i*4)+3];
       }
 
   }
@@ -93,7 +96,6 @@ function buttonlis(){
   if (i<6){
     anscheck()
     i++;
-    console.log("i: "+i);
     nextq();
    } else {  // you finished your quiz!
     timesup()
@@ -115,9 +117,10 @@ function anscheck(){
 }
 
 function timesup(){
-  for (var  y= 0; y < buttons.length; y++) {
-    buttons[y].style.display = "none";
-  }
+  // for (var  y= 0; y < buttons.length; y++) {
+  //   buttons[y].style.display = "none";
+  // }
+  hideoptions()
 
   if (i<5){
     time.textContent ="Time: Out of time!";
@@ -128,12 +131,14 @@ function timesup(){
   }
 
   if (ansclick!=""){
-    wrong.textContent = "You answered: "+ emoji;
+    wrong.textContent = "You answered: "+ emoji+ ":  "+score+" / 6 correct answers";
   }
 
-  p.textContent= "Your final score is: " + score +" .";
+  var finalscore=score*100/6;
+  p.textContent= "Your final score is: " + Math.round(finalscore) +".";
   form.style.display = "block";
   startagain.style.display = "block";
+  // startQuiz.style.display = "block";
 }
 
 submit.addEventListener("click", function(event){
@@ -157,21 +162,32 @@ submit.addEventListener("click", function(event){
 });
 
 high.addEventListener("click", function(event){
+  secondsLeft=0;
+  console.log("seconds left after click");
   title.textContent = "Scores";
   startQuiz.style.display = "none";
   time.style.display = "none";
   wrong.style.display = "none";
   form.style.display = "none";
   message.style.display = "none";
-  startagain.style.display = "none";
   high.style.display = "none";
-  b1.style.display = "block";
-  b1.textContent="Go back";
-  b2.style.display = "block";
-  b2.textContent="Reset Highscores";
+  hideoptions()
+  startagain.style.display = "block";
+  resetscore.style.display = "block";
+
 
 // var highscore=JSON.parse(localStorage.getItem("studentGrade"));
 //   p.textContent=highscore;
 p.textContent=namescore;
 
 });
+
+startagain.addEventListener("click", function(){
+  window.location.reload();
+})
+
+function hideoptions(){
+  for (var  y= 0; y < buttons.length; y++) {
+    buttons[y].style.display = "none";
+  }
+}

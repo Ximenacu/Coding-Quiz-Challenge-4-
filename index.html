@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href=".style.css"> -->
-  <link rel="reset" href=".reset.css">
+  <link rel="reset" href=".reset.css"/>
+  <link rel="stylesheet" type="text/css" href="./assets/style.css" />
   <title>Document</title>
 </head>
 
 <body>
   <header>
-    <h3 id="high">View High Scores</h3>
-    <p id="time">Get Ready!</p>
+    <h4 id="high">View High Scores</h4>
+    <p id="time">Timer: Get Ready!</p>
   </header>
   
   <main>
    <h1 class="title">Coding Quiz Challenge</h1>
-   <p id="p">Try to answer the following code related questions within the time limit. 
-    Keep in mind that incorrect answers will penalize your score 
+   <p id="p">Try to answer the following code related questions within the time limit.<br>
+    Keep in mind that incorrect answers will penalize your score <br>
     and deduct 10 seconds from the timer. </p>
     
    <section>
@@ -34,7 +34,10 @@
       <button id="submit">Submit</button>
     </form>
     <div id="message"></div>
-    <button class="startagain" style="display:none;">Start Quiz Again</button> 
+    <div id="algo">
+    <button class="startagain" style="display:none;">Return to Main</button> 
+    <button class="resetscore" style="display:none;">Clear Scores</button> 
+    </div>
   </main>
   
   <script src="./script.js"></script>

@@ -1,0 +1,88 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* header: View high scores & Timer  */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding:1% 20% 0 4%;
+}
+
+
+main {
+    text-align: center;
+}
+
+button {  /* General styling of all buttons  */
+    font-size: 13pt;
+    color: white;
+    background-color: rgb(186, 47, 221);
+    border-radius: 5px;
+    padding: 0.5% 2%;
+    border: none;
+}
+
+.startQuiz { /* Start Quiz button */
+    font-size: 21px;
+    margin-top: 1%;
+}
+
+
+.button{ /* Quiz options buttons  */
+    position: relative;
+    left: 35%; 
+    padding: 0.5% 5%;
+    margin-bottom: 1%;
+}
+
+.startagain{  /* "Return to main" button */
+    position: relative;
+    left: 45%;
+    margin-top: 3%;
+}
+
+#submit {   /* "submit" button */
+    background-color: rgb(114, 169, 233);
+    padding: 0.3% .6% 0.2%;
+    font-size: 12pt;
+}
+
+/* Text stylings */
+#wrong {
+    font-size: 13pt;
+    margin: 1.5% 0%;
+    text-align: left;
+    margin-left: 30%;
+}
+
+.form{
+    font-size: 13.5pt;
+}
+
+input {
+    height: 20px ;
+}
+
+#message {
+    margin-top: 1%;
+}
+
+#high{
+    color: rgb(186, 47, 221);
+}
+
+
+/* Hovers */
+#high:hover {
+    color: rgb(155, 39, 184);
+    font-size: 105%;
+}
+
+/* Hovers */
+button:hover {
+    background-color: rgb(155, 39, 184);
+    font-size: 120%;
+}
+
+/* scores */
