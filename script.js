@@ -1,4 +1,4 @@
-// media queries
+// Media Queries
 var time = document.querySelector("#time");
 var title = document.querySelector(".title");
 var p = document.querySelector("#p");
@@ -9,34 +9,43 @@ var b2 = document.querySelector("#b2");
 var b3 = document.querySelector("#b3");
 var b4 = document.querySelector("#b4");
 var wrong = document.querySelector("#wrong");
+var form = document.querySelector(".form");
+var submit = document.querySelector("#submit");
+var high = document.querySelector("#high");
+var message =document.querySelector("#message");
+var startagain = document.querySelector(".startagain");
+var namescore=[];
 var i=0;
+var n=0;
 
 //Questions, options and answers:
-var questions =["¿Cuánto quieres a Ximena?","¿Cuál es su serie favorita?","¿A qué concierto NO ha ido Ximena?","¿Cuándo es su cumpleaños?","¿Cuántos tatuajes tiene Ximena?","¿Cómo se llama su psicóloga?","You are done!"];
+var questions =["¿Cuánto quieres a Ximena?","¿Cuál es su serie favorita?","¿A qué concierto NO ha ido Ximena?","¿Cuándo es su cumpleaños?","¿Cuántos tatuajes tiene Ximena?","¿Cómo se llama su psicóloga?","You completed the Quiz."];
 var ans1 = ["Nada","Poco","Mucho","Muchísimo","Breaking Bad","Game of Thrones","Arcane","Hunting of Hillhouse","EDC","Billie Eilish","The Killers","Falling in Reverse","14 Nov","15 nov","16 nov","17 nov","2","3","4","1","Ale","Yuri","Moni","Alma"];
 var correct = [3,1,3,0,2,1];
 var ansclick = [];
 var emoji =[];
+var score=0;
 
 // Timer control:
-var secondsLeft=60;
-startQuiz.addEventListener("click", function() {
-  go();
+var secondsLeft=25;// Initial time available
 
-   // Initial time available
+startQuiz.addEventListener("click", function() {
   var timerID = setInterval(function() {
     secondsLeft--;
     time.textContent = "Time: " + secondsLeft;
 
-      if(secondsLeft === 0) {
-        clearInterval(timerID);
-        time.textContent ="";
-        // Calls function 
-        chema(8);
-      }
+    if (secondsLeft < 0 || i==6) {
+      clearInterval(timerID);
+      timesup();
+    }
+  }
+  ,1000)
 
-  },1000)
+  go();
+
 });
+
+
 
 // Setup For Questions
 function go(){
@@ -70,47 +79,99 @@ b4.addEventListener("click", function() {
 // Next question Function
 function nextq(){
       title.textContent =questions[i];
-      b1.textContent = ans1[i*4];
-      b2.textContent = ans1[(i*4)+1];
-      b3.textContent = ans1[(i*4)+2];
-      b4.textContent = ans1[(i*4)+3];
+      if (i<6){
+        b1.textContent = ans1[i*4];
+        b2.textContent = ans1[(i*4)+1];
+        b3.textContent = ans1[(i*4)+2];
+        b4.textContent = ans1[(i*4)+3];
+      }
+
   }
 
+// Button listener commands:
 function buttonlis(){
-  if (i<5){
+  if (i<6){
     anscheck()
     i++;
     console.log("i: "+i);
     nextq();
-   } else {
-    title.textContent =questions[6];
-    wrong.textContent = "You answered: "+ emoji;
-     for (var  y= 0; y < buttons.length; y++) {
-       buttons[y].style.display = "none";
-     }
+   } else {  // you finished your quiz!
+    timesup()
    }
 }
 
 // Checking answers
 function anscheck(){
-  console.log("ansclick: "+ ansclick[i]);
-  console.log("correct: "+ correct[i]);
-  // console.log("i: "+i);
   if (ansclick[i]!=correct[i]){
     emoji.push("❌");
     wrong.textContent = "Wrong Answer!" + emoji;
     secondsLeft = secondsLeft-5;
 
     } else {
+      score++;
       emoji.push("✅");
-      wrong.textContent = "Right Answer!"+ emoji; }
+      wrong.textContent = "Right Answer!"+ emoji;
+    }
 }
 
-function resetmsg(){
-  wrong.textContent = "";
+function timesup(){
+  for (var  y= 0; y < buttons.length; y++) {
+    buttons[y].style.display = "none";
+  }
+
+  if (i<5){
+    time.textContent ="Time: Out of time!";
+    title.textContent = "You ran out of time!";
+  } else {
+    time.textContent ="Time: -";
+    title.textContent = questions[i];
+  }
+
+  if (ansclick!=""){
+    wrong.textContent = "You answered: "+ emoji;
+  }
+
+  p.textContent= "Your final score is: " + score +" .";
+  form.style.display = "block";
+  startagain.style.display = "block";
 }
 
+submit.addEventListener("click", function(event){
+  event.preventDefault();
+  var name = document.querySelector("#name").value;
 
+  // var user = {
+  //   name: name,
+  //   score: score
+  // };
+  // console.log("user.name: "+ user.name)
+  // console.log("user.score: "+ user.score)
+  // localStorage.setItem("user", JSON.stringify(user));
+  n++;
+  namescore.push(name);
+  namescore.push(score);
+  console.log("namescore name: "+ namescore[0])
+  console.log("namescore score: "+ namescore[1])
+  message.textContent="Thanks for submitting your name, you can now compare your score or try again!"
 
- function chema(age){
-   console.log("your age is: "+age);}
+});
+
+high.addEventListener("click", function(event){
+  title.textContent = "Scores";
+  startQuiz.style.display = "none";
+  time.style.display = "none";
+  wrong.style.display = "none";
+  form.style.display = "none";
+  message.style.display = "none";
+  startagain.style.display = "none";
+  high.style.display = "none";
+  b1.style.display = "block";
+  b1.textContent="Go back";
+  b2.style.display = "block";
+  b2.textContent="Reset Highscores";
+
+// var highscore=JSON.parse(localStorage.getItem("studentGrade"));
+//   p.textContent=highscore;
+p.textContent=namescore;
+
+});

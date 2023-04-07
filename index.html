@@ -11,7 +11,7 @@
 
 <body>
   <header>
-    <h3>View High Scores</h3>
+    <h3 id="high">View High Scores</h3>
     <p id="time">Get Ready!</p>
   </header>
   
@@ -20,6 +20,7 @@
    <p id="p">Try to answer the following code related questions within the time limit. 
     Keep in mind that incorrect answers will penalize your score 
     and deduct 10 seconds from the timer. </p>
+    
    <section>
     <button class="startQuiz">Start Quiz</button> 
       <button  class="button" id="b1" style="display:none;"></button>
@@ -28,6 +29,12 @@
       <button  class="button" id="b4" style="display:none;"></button>
    </section>
    <section id="wrong"></section>
+   <form class="form" style="display:none;">Enter your name:
+      <input placeholder="Name" id="name" />
+      <button id="submit">Submit</button>
+    </form>
+    <div id="message"></div>
+    <button class="startagain" style="display:none;">Start Quiz Again</button> 
   </main>
   
   <script src="./script.js"></script>
