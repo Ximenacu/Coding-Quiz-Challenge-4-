@@ -12,43 +12,56 @@ var wrong = document.querySelector("#wrong");
 var form = document.querySelector(".form");
 var submit = document.querySelector("#submit");
 var high = document.querySelector("#high");
-var message =document.querySelector("#message");
-var startagain = document.querySelector(".startagain");
+var message = document.querySelector("#message");
+var startagain = document.querySelector("#startagain");
 var resetscore = document.querySelector(".resetscore");
-var namescore=[];
+var high1 = document.querySelector(".high1");
+var high2 = document.querySelector(".high2");
+var high3 = document.querySelector(".high3");
+var high4 = document.querySelector(".high4");
+var high5 = document.querySelector(".high5");
+var namescore=[];  // name and score array 
+var namescoretrial=["ximena",17,"Fabian",100,"lalo",40]; // this is a trial varible, errase. 
 var i=0;
-var n=0;
+// var n=0;
+var omg;
+var secondsLeft = 25;
+var secondsLeftout = 25;
+var finalscore;
 
 //Questions, options and answers:
-var questions =["¿Cuánto quieres a Ximena?","¿Cuál es su serie favorita?","¿A qué concierto NO ha ido Ximena?","¿Cuándo es su cumpleaños?","¿Cuántos tatuajes tiene Ximena?","¿Cómo se llama su psicóloga?","You completed the Quiz."];
-var ans1 = ["Nada","Poco","Mucho","Muchísimo","Breaking Bad","Game of Thrones","Arcane","Hunting of Hillhouse","EDC","Billie Eilish","The Killers","Falling in Reverse","14 Nov","15 nov","16 nov","17 nov","2","3","4","1","Ale","Yuri","Moni","Alma"];
+var questions =["1.- This is Question #1?","2.- This is Question #2?","3.- This is Question #3?","4.- This is Question #4?","5.- This is Question #5?","6.- This is Question #6?","You completed the Quiz."];
+var ans1 = ["A","B","C","D","Breaking Bad","Game of Thrones","Arcane","Hunting of Hillhouse","EDC","Billie Eilish","The Killers","Falling in Reverse","14 Nov","15 feb","16 dic","17 Mar","2","3","4","1","Ale","Yuri","Moni","Alma"];
 var correct = [3,1,3,0,2,1];
 var ansclick = [];
 var emoji =[];
 var score=0;
 
-// Timer control:
-var secondsLeft=25;// Initial time available
+// Retrieving stored names and scores:
+init()
 
+// Timer control:
 startQuiz.addEventListener("click", function() {
-  var secondsLeft=25;// Initial time available
   var timerID = setInterval(function() {
+    if (secondsLeftout<secondsLeft){
+      secondsLeft=secondsLeftout;
+    }
     secondsLeft--;
     console.log("seconds left"+ secondsLeft);
     time.textContent = "Time: " + secondsLeft;
 
-    if (secondsLeft < 0 || i==6) {
+    if (secondsLeft < 1 || i==6) {
       clearInterval(timerID);
       timesup();
     }
+
+    if (omg==true) {
+      clearInterval(timerID);
+    }
   }
   ,1000)
-
   go();
-
 });
-
-
 
 // Setup For Questions
 function go(){
@@ -61,7 +74,7 @@ function go(){
   }
 }
 
-// Event listenners for buttons
+// Event listenners for Quiz options buttons
 b1.addEventListener("click", function() {
     ansclick.push(0);
     buttonlis()
@@ -88,13 +101,12 @@ function nextq(){
         b3.textContent = "C) " + ans1[(i*4)+2];
         b4.textContent = "D) " + ans1[(i*4)+3];
       }
-
   }
 
 // Button listener commands:
 function buttonlis(){
   if (i<6){
-    anscheck()
+    anscheck(secondsLeft)
     i++;
     nextq();
    } else {  // you finished your quiz!
@@ -103,11 +115,13 @@ function buttonlis(){
 }
 
 // Checking answers
-function anscheck(){
+function anscheck(secondsLeft){
+  console.log("anscheck");
   if (ansclick[i]!=correct[i]){
     emoji.push("❌");
     wrong.textContent = "Wrong Answer!" + emoji;
-    secondsLeft = secondsLeft-5;
+    secondsLeftout = secondsLeft-4;
+    console.log("anscheck seconds left out: "+secondsLeftout);
 
     } else {
       score++;
@@ -116,54 +130,63 @@ function anscheck(){
     }
 }
 
+// Display when timer is over or quiz is finished:
 function timesup(){
-  // for (var  y= 0; y < buttons.length; y++) {
-  //   buttons[y].style.display = "none";
-  // }
+  console.log("timesup");
   hideoptions()
 
-  if (i<5){
+  if (i<6){
+    console.log("timesup out");
     time.textContent ="Time: Out of time!";
     title.textContent = "You ran out of time!";
   } else {
+    console.log("timesup done");
     time.textContent ="Time: -";
-    title.textContent = questions[i];
+    title.textContent = "You completed the Quiz.";
   }
 
   if (ansclick!=""){
     wrong.textContent = "You answered: "+ emoji+ ":  "+score+" / 6 correct answers";
   }
 
-  var finalscore=score*100/6;
-  p.textContent= "Your final score is: " + Math.round(finalscore) +".";
+  finalscore=Math.round(score*100/6); // IF THE TOTAL NUMBER OF QUESTIONS IS 6
+  p.textContent= "Your final score is: " + finalscore +" / 100";
   form.style.display = "block";
   startagain.style.display = "block";
-  // startQuiz.style.display = "block";
+  document.getElementById("startagain").style.margin = "0 0 0 9.5%";
 }
 
+//Retrieving name and score from local storage:
+function init(){
+  var stored = JSON.parse(localStorage.getItem("StoredNamescore"));
+  if (stored != null){
+    namescore = stored;
+    console.log("it was filled");
+  }
+
+}
+
+// When submit is clicked: Storing name and score. 
 submit.addEventListener("click", function(event){
   event.preventDefault();
-  var name = document.querySelector("#name").value;
+  
+  var name = document.querySelector("#nameInput").value;
 
-  // var user = {
-  //   name: name,
-  //   score: score
-  // };
-  // console.log("user.name: "+ user.name)
-  // console.log("user.score: "+ user.score)
-  // localStorage.setItem("user", JSON.stringify(user));
-  n++;
+  if (namescore.length>9){
+    namescore.shift();
+    namescore.shift();
+  }
+
   namescore.push(name);
-  namescore.push(score);
-  console.log("namescore name: "+ namescore[0])
-  console.log("namescore score: "+ namescore[1])
-  message.textContent="Thanks for submitting your name, you can now compare your score or try again!"
+  namescore.push(finalscore);
 
+  localStorage.setItem("StoredNamescore", JSON.stringify(namescore));
+  message.textContent="Thanks for submitting your name, you can now compare your score or try again!"
 });
 
+// when highscores is clicked:
 high.addEventListener("click", function(event){
-  secondsLeft=0;
-  console.log("seconds left after click");
+  omg = true;
   title.textContent = "Scores";
   startQuiz.style.display = "none";
   time.style.display = "none";
@@ -174,11 +197,40 @@ high.addEventListener("click", function(event){
   hideoptions()
   startagain.style.display = "block";
   resetscore.style.display = "block";
+   if (namescore == ""){
+     p.textContent="No scores to display yet.";    
+   } else { 
+  //var n = namescoretrial.length; // 6 === 3 scores 
+  //console.log("Lenght: "+n);
+  p.textContent="";
+  if(namescore[0]!==undefined){
+    high1.textContent=namescore[0]+"   with:  "+namescore[1]+"  pts";
+  }
+  if(namescore[2]!==undefined){
+    high2.textContent=namescore[2]+"   with:  "+namescore[3]+"  pts";
+  }
+  if(namescore[4]!==undefined){
+    high3.textContent=namescore[4]+"   with:  "+namescore[5]+"  pts";
+  }
+  if(namescore[6]!==undefined){
+    high4.textContent=namescore[6]+"   with:  "+namescore[7]+"  pts";
+  }
+  if(namescore[8]!==undefined){
+    high5.textContent=namescore[8]+"   with:  "+namescore[9]+"  pts";
+  }
+  }
 
+});
 
-// var highscore=JSON.parse(localStorage.getItem("studentGrade"));
-//   p.textContent=highscore;
-p.textContent=namescore;
+resetscore.addEventListener("click", function(){
+  window.localStorage.removeItem('StoredNamescore');
+  namescore == "";
+  p.textContent="No scores to display yet."; 
+  high1.style.display = "none";
+  high2.style.display = "none";
+  high3.style.display = "none";
+  high4.style.display = "none";
+  high5.style.display = "none";
 
 });
 

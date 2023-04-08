@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="reset" href=".reset.css"/>
   <link rel="stylesheet" type="text/css" href="./assets/style.css" />
-  <title>Document</title>
+  <title>Coding Quiz</title>
 </head>
 
 <body>
@@ -17,9 +17,14 @@
   
   <main>
    <h1 class="title">Coding Quiz Challenge</h1>
-   <p id="p">Try to answer the following code related questions within the time limit.<br>
+   <p class="high" id="p">Try to answer the following code related questions within the time limit.<br>
     Keep in mind that incorrect answers will penalize your score <br>
     and deduct 10 seconds from the timer. </p>
+    <p class="high1" id="thescores"></p>
+    <p class="high2" id="thescores"></p>
+    <p class="high3" id="thescores"></p>
+    <p class="high4" id="thescores"></p>
+    <p class="high5" id="thescores"></p>
     
    <section>
     <button class="startQuiz">Start Quiz</button> 
@@ -30,13 +35,13 @@
    </section>
    <section id="wrong"></section>
    <form class="form" style="display:none;">Enter your name:
-      <input placeholder="Name" id="name" />
+      <input placeholder="Name" id="nameInput" />
       <button id="submit">Submit</button>
     </form>
     <div id="message"></div>
     <div id="algo">
-    <button class="startagain" style="display:none;">Return to Main</button> 
-    <button class="resetscore" style="display:none;">Clear Scores</button> 
+      <button id="startagain" style="display:none;">Return to Main</button> 
+      <button class="resetscore" style="display:none;">Clear Scores</button> 
     </div>
   </main>
   

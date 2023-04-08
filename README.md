@@ -5,10 +5,10 @@ This app runs in the browser, and features dynamically updated HTML and CSS powe
 Has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
 
 ## URL of deployed app:
-https://ximenacu.github.io/Password_Generator/
+
 
 ## URL of Git Hub 
-https://github.com/Ximenacu/Password_Generator
+
 
 ![image](screenshot_deployedApp_passwordGenerator.jpg)
 
