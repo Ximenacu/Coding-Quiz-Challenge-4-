@@ -5,12 +5,12 @@ This app runs in the browser, and features dynamically updated HTML and CSS powe
 Has a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
 
 ## URL of deployed app:
-
+https://ximenacu.github.io/Coding-Quiz-Challenge-4-/
 
 ## URL of Git Hub 
+https://github.com/Ximenacu/Coding-Quiz-Challenge-4-
 
-
-![image](screenshot_deployedApp_passwordGenerator.jpg)
+![image](SS_Deployed_App_Quiz.jpg)
 
 ## Acceptance Ariteria:
 AS A coding boot camp student
@@ -33,21 +33,21 @@ THEN time is subtracted from the clock✅
 THEN the game is over✅
 
 * WHEN the game is over
-THEN I can save my initials and score 
+THEN I can save my initials and score ✅
 
 ### Additionally:
 * The Challenge should not produce any errors in the console when you inspect it using Chrome DevTools. 
-* Application deployed at live URL. 
-* Application loads with no errors.
-* Application GitHub URL submitted. 
+* Application deployed at live URL. ✅
+* Application loads with no errors.✅
+* Application GitHub URL submitted.  ✅
 * Quality  
-    * Application user experience is intuitive and easy to navigate.
-    * Application user interface style is clean and polished.
-    * Application resembles the mock-up functionality provided in the Challenge instructions.
+    * Application user experience is intuitive and easy to navigate.✅
+    * Application user interface style is clean and polished. ✅
+    * Application resembles the mock-up functionality provided in the Challenge instructions. ✅
 * Repository 
-    * Repository has a unique name.
-    * Repository follows best practices for file structure and naming conventions.
+    * Repository has a unique name. 
+    * Repository follows best practices for file structure and naming conventions. 
     * Repository follows best practices for class/id naming conventions, indentation, high-quality comments, etc.
     * Repository contains multiple descriptive commit messages.
-    * Repository contains a high-quality README file with description, screenshot, and link to deployed application.
+    * Repository contains a high-quality README file with description, screenshot, and link to deployed application. ✅
 
