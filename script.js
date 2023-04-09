@@ -1,3 +1,4 @@
+//Coding Quiz Challenge
 // Media Queries
 var time = document.querySelector("#time");
 var title = document.querySelector(".title");
@@ -20,10 +21,8 @@ var high2 = document.querySelector(".high2");
 var high3 = document.querySelector(".high3");
 var high4 = document.querySelector(".high4");
 var high5 = document.querySelector(".high5");
-var namescore=[];  // name and score array 
-var namescoretrial=["ximena",17,"Fabian",100,"lalo",40]; // this is a trial varible, errase. 
+var namescore=[];  
 var i=0;
-// var n=0;
 var omg;
 var secondsLeft = 25;
 var secondsLeftout = 25;
@@ -47,7 +46,6 @@ startQuiz.addEventListener("click", function() {
       secondsLeft=secondsLeftout;
     }
     secondsLeft--;
-    console.log("seconds left"+ secondsLeft);
     time.textContent = "Time: " + secondsLeft;
 
     if (secondsLeft < 1 || i==6) {
@@ -116,12 +114,11 @@ function buttonlis(){
 
 // Checking answers
 function anscheck(secondsLeft){
-  console.log("anscheck");
+  
   if (ansclick[i]!=correct[i]){
     emoji.push("❌");
     wrong.textContent = "Wrong Answer!" + emoji;
     secondsLeftout = secondsLeft-4;
-    console.log("anscheck seconds left out: "+secondsLeftout);
 
     } else {
       score++;
@@ -132,15 +129,12 @@ function anscheck(secondsLeft){
 
 // Display when timer is over or quiz is finished:
 function timesup(){
-  console.log("timesup");
   hideoptions()
 
   if (i<6){
-    console.log("timesup out");
     time.textContent ="Time: Out of time!";
     title.textContent = "You ran out of time!";
   } else {
-    console.log("timesup done");
     time.textContent ="Time: -";
     title.textContent = "You completed the Quiz.";
   }
@@ -161,7 +155,6 @@ function init(){
   var stored = JSON.parse(localStorage.getItem("StoredNamescore"));
   if (stored != null){
     namescore = stored;
-    console.log("it was filled");
   }
 
 }
@@ -169,7 +162,6 @@ function init(){
 // When submit is clicked: Storing name and score. 
 submit.addEventListener("click", function(event){
   event.preventDefault();
-  
   var name = document.querySelector("#nameInput").value;
 
   if (namescore.length>9){
@@ -200,8 +192,7 @@ high.addEventListener("click", function(event){
    if (namescore == ""){
      p.textContent="No scores to display yet.";    
    } else { 
-  //var n = namescoretrial.length; // 6 === 3 scores 
-  //console.log("Lenght: "+n);
+
   p.textContent="";
   if(namescore[0]!==undefined){
     high1.textContent=namescore[0]+"   with:  "+namescore[1]+"  pts";
@@ -222,6 +213,7 @@ high.addEventListener("click", function(event){
 
 });
 
+// to errase stored scores:
 resetscore.addEventListener("click", function(){
   window.localStorage.removeItem('StoredNamescore');
   namescore == "";
@@ -234,10 +226,12 @@ resetscore.addEventListener("click", function(){
 
 });
 
+// go back to main 
 startagain.addEventListener("click", function(){
   window.location.reload();
 })
 
+// hide buttons
 function hideoptions(){
   for (var  y= 0; y < buttons.length; y++) {
     buttons[y].style.display = "none";

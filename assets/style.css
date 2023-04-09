@@ -1,17 +1,14 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
+main {
+    text-align: center;
+}
 /* header: View high scores & Timer  */
 header {
     display: flex;
     justify-content: space-between;
     padding:1% 20% 0 17%;
-}
-
-
-main {
-    text-align: center;
 }
 
 /* General styling of all buttons */
