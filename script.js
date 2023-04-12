@@ -29,9 +29,9 @@ var secondsLeftout = 25;
 var finalscore;
 
 //Questions, options and answers:
-var questions =["1.- This is Question #1?","2.- This is Question #2?","3.- This is Question #3?","4.- This is Question #4?","5.- This is Question #5?","6.- This is Question #6?","You completed the Quiz."];
-var ans1 = ["A","B","C","D","Breaking Bad","Game of Thrones","Arcane","Hunting of Hillhouse","EDC","Billie Eilish","The Killers","Falling in Reverse","14 Nov","15 feb","16 dic","17 Mar","2","3","4","1","Ale","Yuri","Moni","Alma"];
-var correct = [3,1,3,0,2,1];
+var questions =["1.- Inside which HTML element do we put the JavaScript??","2.- JavaScript is a ___ -side programming language?","3.- Which of the following will write  “Hello!” in an alert box?","4.- How do you find the minimum of x and y using JavaScript??","5.- Which are the correct “if” statements to execute certain code if “x” is equal to 2?","6.- What will the code boolean (3<7) return??","You completed the Quiz."];
+var ans1 = ["<js>","<javascript>","<scripting>","<script>","Server","Client","Both","None","alertBox(“Hello!”);"," alert(Hello!);","msgAlert(“Hello!”);"," alert(“Hello!”);"," Math.min(x,y)","min(x,y);"," Math.min(xy)"," min(xy);"," if(x 2)"," if(x = 2)"," if(x == 2)"," if(x != 2 )","false","true","syntax error","NaN"];
+var correct = [3,2,3,0,2,1];
 var ansclick = [];
 var emoji =[];
 var score=0;
